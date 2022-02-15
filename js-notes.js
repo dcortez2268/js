@@ -53,9 +53,6 @@
 
 typeof nameOfVariable //returns type of variable with string data type
 
-// To get all the properties (own + prototype): 
-for (let key in obj) {} 
-
 (1 == 1); // loose equality operator (==), basic defn is that only checks for value, if rhs is not equal to lhs type it converts rhs then checks for value only
 (1 === 1);// strict equality operator(===), basic defn is that checks for value and data type, checks objects for reference value
 
@@ -133,7 +130,7 @@ playVideo.apply({ name: "mosh"}, [optionalArgsToFn]); // apply and call: call th
 const fn = playVideo.bind({ name: "mosh"}, [optionalArgsToFn]);//  bind: does not call the method, it returns a new function and sets this to object PERMANENTLY,
 //  STRICT MODE: any reference to global object is undefined
 
-//Arrow Functions:  don't rebind this keyword!
+// Arrow Functions:  don't rebind this keyword!
 // inherit this value from containing function,useful because standalone functions or callback functions reference window/global object with this keyword
 
 
