@@ -304,7 +304,7 @@ numbers.join(optionalStringSeperator) //returns single string of whole array
 
 //SORTING ARRAYS
 // strings, numbers do not need parameter but if sorting objects then pass optionalCallbackFn that sorts objects based on conditions
-numbers.sort(optionalCallbackFn); //casts each element to string, then sorts in ascending order
+numbers.sort(optionalCallbackFn); //casts each element to string, then sorts in ascending order, performs sort function on original numbers array
 numbers.reverse(); //casts each element to string, then sorts in descending order
 
 // TESTING ELEMENTS OF ARRAY
@@ -589,10 +589,37 @@ import ObjectName, {OtherObjectName} from ‘path’;
 // bundler(WEBPACK): combindes all JS files and other files into a bundle, minify code, uglify
 
   
-  //**************************** */
-  //  STRICT MODE:
-  //**************************** */
+//**************************** */
+//  STRICT MODE:
+//**************************** */
 //  any reference to global object is undefined
 //  throws error if you try to call/modify Window object
 //  raises errors on some things that are otherwise silent errors
 //  does more but beyond scope of this intro class
+
+//***************************************************************************************************** */
+// JSON : Javascript Object Notation
+//************************************************************** ***************************************/
+// Lightweight data-interchange format used to send data back and forth to server as text,
+// Often used with Ajax
+// Based on a subset of Javascript so it is lightweight and easy to read/write
+// integrates easily with most languages
+
+// Data Types: String:use double quotes, Number: in any format, booleans, null, arrays, objects
+
+// syntax:
+// must use the specified data types, uses key/value pairs, file type is .json, MIME type is application/json
+{
+  "key": "value",
+  "key": 2,
+  "key": true,
+  "hobbies": ["s", "a"],
+  "address": {}
+}
+
+//functions
+var person = { name: "dominick", age: 28};
+//stringify casts person object to valid JSON string
+let jsonString = JSON.stringify(person);
+//parse function casts JSON string to object
+let personObject = JSON.parse(jsonString);
