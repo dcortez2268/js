@@ -19,7 +19,7 @@ function createPost(post) {
     return new Promise((resolve, reject) =>{
         setTimeout(() => {
             posts.push(post);
-
+            
             //some type of error checking goes on here
             const error = false;
 

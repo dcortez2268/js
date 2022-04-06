@@ -116,13 +116,15 @@ colors.forEach(e => console.log(e));
 // variables
 //************************** */ 
 let, const //  BLOCK SCOPED VARIABLES: are only accessible inside current block and blocks within this block,
-var //  FUNCTION SCOPED VARIABLES: are accessible to blocks within this block, AND anywhere within function, attaches variables to Window object if outside function
+var //  FUNCTION SCOPED VARIABLES: are accessible to blocks within this block, AND anywhere within function, attaches variables to Window object if outside function,
+// use const over let, unless you need to redefine variable,
+
 
 //************************** */ 
 this // keyword references the object that is executing the current function
 //************************** */ 
-// if current function is method of object, or constructor function, THIS references current object the method belongs to,
-// if current function is regular standalone function (outside class, or method inside a function inside class, or prototype method) THIS references global object (in browser window, or in node global), important to remember
+// if current function called is method of object, or constructor function, THIS references current object the method belongs to,
+// if current function called is regular standalone function (outside class, or method inside a function inside class, or prototype method) THIS references global object (in browser window, or in node global), important to remember
 
 // apply(), bind(), call(): can change value of this for functions
 playVideo.call({ name: "mosh"}, optionalArgsToFn); 
@@ -169,6 +171,7 @@ const circle = {
   draw: function() {}
 }; 
 const; //keyword ensures the object reference will not be changed, can modify contents of object though
+// when defining function inside object we can drop : and function keyword 
 
 //************************* */
 //  FACTORY FUNCTIONS, 
@@ -418,7 +421,7 @@ const street = address.street;
 const city = address.city; 
 const country = address.country;
 // IS SAME AS
-const { street, city : c, address} = address;
+const { street, city : c, country} = address;
 
 //************************** */ 
 // REST OPERATOR
@@ -430,6 +433,28 @@ function sum(...args) {} // REST OPERATOR
 
 // DEFAULT PARAMETERS: 
 function interest(prinicpal, rate, years=66) //can be used by assigning parameter a default value instead of using logical expressions (||) inside function body, must be last parameter in function
+
+//************************** */ 
+// SPREAD OPERATOR
+//************************** */ 
+// unpacks each individual item of array individually, can add other elements easily
+const first = [1,2,3];
+const second = [5,6];
+const combined = [0, ...first, 4, ...second];
+
+// easily clone an array
+const cloned = [...first];
+
+// unpacks each property of object individually, can add other properties easily
+const firstObj = { name: "mosh"};
+const secondObj = { job: "instructor"};
+const combinedObj = {...firstObj, ...secondObj, location: "Australia"};
+
+//easily clone an object
+const clonedObj = {...combinedObj};
+
+
+
 
 //********************************************************************************** */ 
 //  Classes
@@ -534,9 +559,10 @@ class Shape {
 }
 
 class Triangle extends Shape {
-  constructor(color) {
-      // To call the base constructor 
+  constructor(color, sides) {
+      // To call the base constructor , if you don't call base constructor first there will be an error
       super(color);
+      this.sides = sides;
   }
   draw() {
       // Call the base method 
@@ -547,7 +573,7 @@ class Triangle extends Shape {
 }
 
 //**************************** */
-// MODULES, why use?
+// ES6 MODULES, why use?
 //**************************** */
 // modules: related grouping of code to improve maintainability, resusability, and abstraction
 // high level rule is things that are highly related should be grouped together
@@ -561,11 +587,14 @@ class Triangle extends Shape {
 //  - ES6 Modules (Browsers)
 // all you really need to know is ES6 Modules for browser and CommonJS which is used with NodeJS
 
+
+
 // CommonJS (Used in Node)
 // Exporting 
 module.exports.Circle = Circle; 
 // Importing 
 const Circle = require('./circle');
+
 
 //*********************** */
 // ES6 Modules (Used in Browser)
@@ -623,3 +652,12 @@ var person = { name: "dominick", age: 28};
 let jsonString = JSON.stringify(person);
 //parse function casts JSON string to object
 let personObject = JSON.parse(jsonString);
+
+//***************************************************************************************************** */
+// HTTP VERBS
+//************************************************************** ***************************************/
+
+GET// Requests using GET should only retrieve data and should have no other effect on the data
+POST // A POST request is used to send data to the server, for example, customer information, file upload, etc. using HTML forms.
+PUT // Replaces all current representations of the target resource with the uploaded content
+DELETE // Removes all current representations of the target resource given by a URI.
