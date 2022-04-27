@@ -423,6 +423,10 @@ const country = address.country;
 // IS SAME AS
 const { street, city : c, country} = address;
 
+//DESTRUCTURING ARRAYS
+[a, b] = [10, 20];
+//a = 10, b = 20
+
 //************************** */ 
 // REST OPERATOR
 //************************** */ 
