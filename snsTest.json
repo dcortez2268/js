@@ -1,0 +1,22 @@
+{
+    "Records": [
+    {
+    "EventSource": "aws:sns",
+    "EventVersion": "1.0",
+    "EventSubscriptionArn": "arn:aws:sns:us-east-1:191960325487:ContactLensActionItemReminderStack-contactLensBucketTopic6E5CB51C-6URJ6VH57NJZ:497045bc-4049-45d3-a611-138b0a27f40c",
+    "Sns": {
+    "Type": "Notification",
+    "MessageId": "23b3e193-04f1-5a78-91e9-bac1f0c1cb71",
+    "TopicArn": "arn:aws:sns:us-east-1:191960325487:ContactLensActionItemReminderStack-contactLensBucketTopic6E5CB51C-6URJ6VH57NJZ",
+    "Subject": "Amazon S3 Notification",
+    "Message": "{\"Records\":[{\"eventVersion\":\"2.1\",\"eventSource\":\"aws:s3\",\"awsRegion\":\"us-east-1\",\"eventTime\":\"2022-07-21T06:27:59.969Z\",\"eventName\":\"ObjectCreated:Put\",\"userIdentity\":{\"principalId\":\"AWS:AROASZMN2DVXZHYQGVFJY:LilyContactAnalysisService\"},\"requestParameters\":{\"sourceIPAddress\":\"52.72.187.122\"},\"responseElements\":{\"x-amz-request-id\":\"M34HCR5AP7RYVJW1\",\"x-amz-id-2\":\"FMgKG87TgR6eRaX0OMFvSWau/xA2NS1M13XhMXrEmWkRYxHxn9WnREfbqPkA91ccshdTmRi3RWiMmWTxuoMcl68M1IjpgFkIHQj78uStF9c=\"},\"s3\":{\"s3SchemaVersion\":\"1.0\",\"configurationId\":\"c-lens\",\"bucket\":{\"name\":\"amazon-connect-52dc744eae44\",\"ownerIdentity\":{\"principalId\":\"A3O12A8APLY1IT\"},\"arn\":\"arn:aws:s3:::amazon-connect-52dc744eae44\"},\"object\":{\"key\":\"Analysis/Voice/2022/07/21/fa43d35a-0121-41fb-b9a4-76fe7018fae6_analysis_2022-07-21T06%3A17%3A46Z.json\",\"size\":5448,\"eTag\":\"f0f76f1f6fc32f56ff7fda49d1ddf94c\",\"sequencer\":\"0062D8F1EFE5119588\"}}}]}",
+    "Timestamp": "2022-07-21T06:28:00.867Z",
+    "SignatureVersion": "1",
+    "Signature": "QjwPlE5oBmx3MN7hYQWO1OoW/tL9unYcdZojihAYmGmLYiVKhjQbeYogO6uzGHIh2NoaeKMgzLR7ArhmV+8M7I5RHqZX/+SJmJD+iXVFcoNPxyoAu3Npkib/bE1OXi4HAfTOCBvgdCICKbltUOY4B179i4XmUTx4YtKax2LAzkCp/pE/jmxXUbDiwJMILY4+5zXhKJzOUqrDwC2cw5Y0/rZ7lhgB3AQwoczeUU5bNeVb82ZSx3ocGCyo0CvqVrv6Psg2ZGln39HZbYVD8QS5MRaIXT/IH1gagoD9yGoPl0t87mSHseS9po2d/RjaxWkcdecKq0KPCnDnx9lwFrQoAA==",
+    "SigningCertUrl": "https://sns.us-east-1.amazonaws.com/SimpleNotificationService-7ff5318490ec183fbaddaa2a969abfda.pem",
+    "UnsubscribeUrl": "https://sns.us-east-1.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:us-east-1:191960325487:ContactLensActionItemReminderStack-contactLensBucketTopic6E5CB51C-6URJ6VH57NJZ:497045bc-4049-45d3-a611-138b0a27f40c",
+    "MessageAttributes": {}
+    }
+    }
+    ]
+    }
