@@ -657,11 +657,31 @@ let jsonString = JSON.stringify(person);
 //parse function casts JSON string to object
 let personObject = JSON.parse(jsonString);
 
-//***************************************************************************************************** */
+//******************************************************************************* */
 // HTTP VERBS
-//************************************************************** ***************************************/
+//********************************************************************************/
 
 GET// Requests using GET should only retrieve data and should have no other effect on the data
 POST // A POST request is used to send data to the server, for example, customer information, file upload, etc. using HTML forms.
 PUT // Replaces all current representations of the target resource with the uploaded content
 DELETE // Removes all current representations of the target resource given by a URI.
+
+
+//******************************************************************************* */
+// asynchronous programming
+//********************************************************************************/
+// 3 ways to handle async code: callbacks, promises, async/await
+// async task: allows you to complete other tasks while the async task is still working towards completion
+// asynchronous code is always executed after the main thread
+
+// asynchronous code is needed in js so we can render the webpage, then make api calls in the background, and then once those calls are the complete the component is rendered on the page
+
+// Your code will actually be faster because you can perform other tasks while waiting for an asynchronous function to finish running. You can also start multiples requests and processing data while you are waiting for some asynchronous code to complete. On top of that, your user interface won't freeze anymore
+
+// callbacks: when you nest a function inside another function as an argument
+
+// promises: something which will take some time to do.  We run successfully and resolve the promise or some errors occur along the way and the promise is rejected.  
+
+// async/await keywords are the preferred way of handling data and API calls in js
+// async is used before function name and always returns a promise
+// await blocks execution within function until promise returns its result, but execution outside of function is still going
