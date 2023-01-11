@@ -47,13 +47,15 @@
 //arithmetic operators: + - % * / ** ++ --
 //assignment operators: += -= ...
 //comparison operators: > < >= <=
-&& // logical AND operator, true if both operands are true
-|| // logical OR operator, true if one operand is true, evaluation ends as soon as one true or truthy value is found ( short-circuiting )
+&& // logical AND operator, true if both operands are true, also known as guard operator
+  (variable that may be undefined, if undefined returns undefined) && variableProperty that is returned if both true)
+|| // logical OR operator, true if one operand is true, evaluation ends as soon as one true or truthy value is found ( short-circuiting ), also known as default operator
+  (variable that may be undefined, returned if provided) || defaultValue
 ! // logical NOT operator, whatever we give (true or false) then it gives us opposite
 
-typeof nameOfVariable //returns type of variable with string data type
+typeof nameOfVariable //returns type of variable in format of string
 
-(1 == 1); // loose equality operator (==), basic defn is that only checks for value, if rhs is not equal to lhs type it converts rhs then checks for value only
+(1 == 1); // loose equality operator (==), basic dewfn is that only checks for value, if rhs is not equal to lhs type it converts rhs then checks for value only
 (1 === 1);// strict equality operator(===), basic defn is that checks for value and data type, checks objects for reference value
 
 //ternary operator: conditional operator that provides shorthand for if else statements
@@ -123,23 +125,25 @@ var //  FUNCTION SCOPED VARIABLES: are accessible to blocks within this block, A
 //************************** */ 
 this // keyword references the object that is executing the current function
 //************************** */ 
-// if current function called is method of object, or constructor function, THIS references current object the method belongs to,
-// if current function called is regular standalone function (outside class, or method inside a function inside class, or prototype method) THIS references global object (in browser window, or in node global), important to remember
+  //  STRICT MODE: any reference to global object is undefined
+  // if current function called from method of object, or constructor function, THIS references current object the method belongs to,
+  // if current function called from regular standalone function (outside class, or method inside a function inside class) THIS references global object (in browser window, or in node global), important to remember
 
-// apply(), bind(), call(): can change value of this for functions
-playVideo.call({ name: "mosh"}, optionalArgsToFn); 
-playVideo.apply({ name: "mosh"}, [optionalArgsToFn]); // apply and call: call the method and supply object in argument to reference as this,
-const fn = playVideo.bind({ name: "mosh"}, [optionalArgsToFn]);//  bind: does not call the method, it returns a new function and sets this to object PERMANENTLY,
-//  STRICT MODE: any reference to global object is undefined
+  // apply(), bind(), call(): can change value of this for functions
+    // apply and call: call the method and first object in arguments is referenced as this,
+      playVideo.call({ name: "mosh"}, optionalArgsToFn); 
+      playVideo.apply({ name: "mosh"}, [optionalArgsToFn]); 
+    //  bind: does not call the method, it returns a new function and sets this to object PERMANENTLY
+      const fn = playVideo.bind({ name: "mosh"}, [optionalArgsToFn]);
 
-// Arrow Functions:  don't rebind this keyword!
-// inherit this value from containing function,useful because standalone functions or callback functions reference window/global object with this keyword
+  // Arrow Functions:  don't rebind this keyword!
+    // inherit this value from containing function, useful because standalone functions or callback functions reference window/global object with this keyword
 
 
 
-//*************************************************************************************************** */
+/************************************************************************************************/
 // OBJECTS:
-//*************************************************************************************************** */
+//***********************************************************************************************/
 
 //************************* */
 // 2 ways to access properties:
@@ -173,38 +177,40 @@ const circle = {
 const; //keyword ensures the object reference will not be changed, can modify contents of object though
 // when defining function inside object we can drop : and function keyword 
 
-//************************* */
-//  FACTORY FUNCTIONS, 
-//************************* */
-//returns object it creates, property values are supplied as arguments, 
-// if key and value have same name, you can write 'name: name' as 'name'
-// when defining function inside object we can drop : and function keyword 
-function createCircle(radius) { 
-  return {
-    radius, 
-    draw() {}
-  } 
-} 
-const circle = createCircle(3);
 
 //************************* */
-//  CONSTRUCTOR FUNCTIONS, 
+  FACTORY FUNCTIONS, 
 //************************* */
-//we use the new operator and this keyword with constructor functions
-//called by new operator and new operator provides empty object
-//this keyword binds the members to the empty object
-function Circle(radius) { 
-  this.radius = radius; 
-  this.draw = function() {}
-} 
-const anotherCircle = new Circle(3);
-// We can hide the details by using "private members". Replace "this" with "let". More accurately, these are just local variables but from OOP perspective they are private members 
-function Circle(radius) { 
-  // Public member 
-  this.radius = radius; 
-  // Private member                       
-  let defaultLocation = {};                      
-}     
+  //returns object it creates, property values are supplied as arguments, 
+  // if key and value have same name, you can write 'name: name' as 'name'
+  // when defining function inside object we can drop : and function keyword 
+  function createCircle(radius) { 
+    return {
+      radius, 
+      draw() {}
+    } 
+  } 
+  const circle = createCircle(3);
+
+
+//************************* */
+  CONSTRUCTOR FUNCTIONS 
+//************************* */
+  //we use the new operator and this keyword with constructor functions
+  //called by new operator and new operator provides empty object
+  //this keyword binds the members to the empty object
+  function Circle(radius) { 
+    this.radius = radius; 
+    this.draw = function() {}
+  } 
+  const anotherCircle = new Circle(3);
+  // We can hide the details by using "private members". Replace "this" with "let". More accurately, these are just local variables but from OOP perspective they are private members 
+  function Circle(radius) { 
+    // Public member 
+    this.radius = radius; 
+    // Private member                       
+    let defaultLocation = {};                      
+  }     
 
 
 //************************* */
@@ -327,9 +333,9 @@ const sum = numbers.reduce((accumulator, currentValue) => {
 
 
 
-//******** ******************************************************************************************* */
+//******************************************************************************************* */
 // FUNCTIONS
-//******** ******************************************************************************************* */
+// ******************************************************************************************* */
 // 2 ways to declare function, function declaration or function expression
 //function declaration:
 function greet() { 
@@ -345,14 +351,18 @@ let run = function walk() {}; // named function expression
 
 
 
-//*************************************************************************************************** */
-//  PROTOTYPES, inheritance in JS
-//*************************************************************************************************** */
+//**********************************************************************************************/
+ 
+PROTOTYPES, inheritance in JS
+
+//***********************************************************************************************/
 // Classical inheritance: WHERE WE HAVE CLASSES SO WE HAVE STANDARD INHERITANCE RELATIONSHIP, IE A CIRCLE IS-A SHAPE,
 
 //******************* */
-// prototype: an object that is the parent of another object
-// Prototypical Inheritance: we only have objects so we have prototypical inheritance.  Every object references the single root object in memory as its prototype. The __proto__ property shows parents prototype. In JS Prototypical inheritance,  when an object performs a method/property call, the JS Engine first looks at that object to see if it has implementation, and if not found then goes up the Prototype chain until found or until it gets to the single root object in memory.
+prototype: 
+  //an object that is the parent of another object
+Prototypical Inheritance: 
+  //we only have objects so we have prototypical inheritance.  Every object references the single root object in memory as its prototype. The __proto__ property shows parents prototype. In JS Prototypical inheritance,  when an object performs a method/property call, the JS Engine first looks at that object to see if it has implementation, and if not found then goes up the Prototype chain until found or until it gets to the single root object in memory.
 //******************* */
 
 //BENEFIT: optimization technique for storing functions and reusable code once on prototype instead of storing a copy of redundant code on every single instance
@@ -428,7 +438,7 @@ const { street, city : c, country} = address;
 //a = 10, b = 20
 
 //************************** */ 
-// REST OPERATOR
+// REST PARAMETER
 //************************** */ 
 arguments // every function has arguments property that contains all arguments supplied to function call, not array but is iterable, code will not break if fewer or more arguments are given than defined in parameters
 function sum(...args) {} // REST OPERATOR
@@ -461,7 +471,7 @@ const clonedObj = {...combinedObj};
 
 
 //********************************************************************************** */ 
-//  Classes
+  Classes
 //********************************************************************************** */ 
 //************************** */ 
 //  RANDOM
@@ -474,7 +484,7 @@ class Circle{
   constructor(param1){this.param1 = param1;}
   methodName() {logic here}
 }
-// all properties and methods are added to baseCircle prototype, to add to instance you you need to define members in constructor, OR USE ARROW FUNCTION defined in class (preferred to reference current object with this keyword and puts method on the object instead of prototype)
+// all properties and methods are added to baseCircle prototype, to add to instance you you need to define members in constructor, or to add to instance you could define outside of constructor with arrow function
 
 
 //************************** */ 
