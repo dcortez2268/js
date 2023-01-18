@@ -684,9 +684,13 @@ DELETE // Removes all current representations of the target resource given by a 
 // async task: allows you to complete other tasks while the async task is still working towards completion
 // asynchronous code is always executed after the main thread
 
-// asynchronous code is needed in js so we can render the webpage, then make api calls in the background, and then once those calls are the complete the component is rendered on the page
+// examples of async code:
+  // When a user clicks this button, do this.
+  // When an animation is finished, do this.
+  // When a server responds with this information, do this.
+// The "do this" part would be picked up by the engine once the first part has finished and the thread is freed up to execute the code.
 
-// Your code will actually be faster because you can perform other tasks while waiting for an asynchronous function to finish running. You can also start multiples requests and processing data while you are waiting for some asynchronous code to complete. On top of that, your user interface won't freeze anymore
+// Your code will actually be faster because you can perform other tasks while waiting for an asynchronous function to finish running. You can also start multiples requests and processing data while you are waiting for some asynchronous code to complete.
 
 // callbacks: when you nest a function inside another function as an argument
 
