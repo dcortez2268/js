@@ -102,7 +102,7 @@ for (let key in person) {
 //************************** */ 
 // FOR-OF LOOP: ideal way to iterate through arrays
 //************************** */ 
-// loop variable is value of each element in array 
+// loop variable is value of each element in array, or reference if object 
 // can only be used on obects with iterator
 const colors = ['red', 'green', 'blue'];
 for (let color of colors) console.log(color); //output would be red green blue
