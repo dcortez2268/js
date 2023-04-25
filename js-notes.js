@@ -288,7 +288,7 @@ numbers.includes() //returns true if given element exists in array, false otherw
 //all have optional parameter that includes starting index of search
 
 // FINDING REFERENCE TYPES, find(), findIndex()
-numbers.find(predicate) //returns value of the first element in array that satisfies predicate, otherwise returns undefined
+numbers.find(predicate) //returns reference of the first element in array that satisfies predicate, otherwise returns undefined
 numbers.findIndex(predicate) //returns index of the first element in array that satisfies predicate, otherwise returns -1
 
 // CLEARING AN ARRAY
@@ -603,7 +603,9 @@ class Triangle extends Shape {
 
 
 
+//*********************** */
 // CommonJS (Used in Node)
+//*********************** */
 // Exporting 
 module.exports.Circle = Circle; 
 // Importing 
@@ -623,7 +625,7 @@ import ObjectName from 'module(path)';
 
 // to import both from a file we use: 
 import ObjectName, {OtherObjectName} from ‘path’; 
-// to understand import line we need to use Webpack or within html file set type attribute to 'module' in script tag
+// to understand import line we need to use Webpack or within html file set type attribute to 'module' in script tag for browser to understand, but this does not work for older browsers
 
 //**************************** */
 // ES6 TOOLING(for BROWSER SIDE)
