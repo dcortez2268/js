@@ -12,7 +12,7 @@
 // variables that have not been initialized are undefined type with value undefined
 // JS doesn't have different data type for floating points or integers, they are all Number type
 // JS Engine has automatic garbage collection
-// callback function: function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action
+// callback function: function passed into another function as an argument, which is then invoked inside the outer function at the end to ensure it gets called after your first function has run
 // hoisting: the process of moving function declarations to top of file at runtime by JS Engine
 
 
@@ -276,6 +276,7 @@ set: function(value){propertyName= value;}
   numbers.unshift()// adds elements to beginning of array
 numbers.splice()// adds elements in certain position of array
 
+
 // REMOVING ELEMENTS 
 numbers.pop() //removes element from end of array and returns it
 numbers.shift() // removes element from beginning of array and returns it
@@ -347,7 +348,7 @@ let run = function walk() {}; // named function expression
 
 // DIFFERENCES BETWEEN FUNCTION DECLARATIONS AND FUNCTION EXPRESSIONS
 // expression needs ; at end of {} and declaration does not,
-// function declaration can be called in file before declaration but expression cannot it will throw ReferenceError, this is achieved by HOISTING: the process of moving function declarations to top of file at runtime by JS Engine
+// function declaration can be called in file before declaration but expression cannot and will throw ReferenceError, this is achieved by HOISTING: the process of moving function declarations to top of file at runtime by JS Engine
 
 
 
